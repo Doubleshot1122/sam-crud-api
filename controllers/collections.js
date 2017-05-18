@@ -1,14 +1,14 @@
 const Collection = require('../models/collection')
 
 const getAll = (req, res) => {
-  Collection.get().then(collections => {
+  Collection.populate().then(collections => {
     res.json(collections)
   })
 }
 
 const getOne = (req, res) => {
   const id = req.params.id
-  Collection.get(id).then(collection => {
+  Collection.populate(id).then(collection => {
     res.json(collection)
   })
 }
